@@ -1,0 +1,322 @@
+-------------------------------------JAVA-----------------------------------------------------------
+
+- James Gosling - Idealizador e considerado Pai do Java
+
+- linguagem java quando compilada pelo JRE se transforma em um executavel chamado Bytecode(Linguagem da JVM(java virtual machine))
+  não vira um .exe, por que? o .exe so funciona no windowns e o Bytecode é interpretado pela JVM e não pelo SO(sistemas operacional) em si.
+
+- JVM - Maquina virtual java(entende o codigos em Bytecode java e traduz para outros (hardwares, tvs, sistemas operacionais)
+
+- JRE(é o ambiente de execução com bibliotecas(API) e é utilizado para executar as aplicações da plataforma Java)
+
+- JDK(são as ferramentas de desenvolvimento junto com o ambiente de execução)
+
+- JDK = (JRE + JVM + API) + ferramentas de desenvolvimento
+
+- IDE (Eclipse, netbeans, intelij) integrat development ambient(ambiente de desenvolvimento integrado)
+
+- pacotes(packages) servem para organizar os codigos, o codigo "package nome_do_pacote" serve para declarar para a classe em que pacote ela está, obrigatorio a todas
+  as classes que estiverem dentro de um pacote nomeado, tambem nao pode haver nada antes deste comando.
+
+-o FQN (Full Qualified Name) é nome completo da classe, composto pelo nome do pacote e o nome da classe.
+ FQN = Nome Pacote . Nome Simples da Classe
+
+- documentação java - pode ser criada automaticamente pelo eclipse, projects > javadoc> finish. no java doc so é possivel ver os membros publicos da classe.
+
+- declarações do java doc:
+@author (usado na classe ou interface)
+@version (usado na classe ou interface)
+@param (usado no método e construtor)
+@return (usado apenas no método)
+@exception ou @throws (no método ou construtor)
+@see
+@since
+@serial
+@deprecated
+
+- comentarios em java: //comenta uma linha
+			/*comenta varias linha
+			/**comenta varias linha e entra no javadoc
+
+- o java.lang ja vem importado automaticamente em todas as classes e projetos, exceções e classes como String e System vem dessa lib
+
+- A String é uma classe da API java.lang, ela foi criada para ser "imutavel" ou seja, tudo que for criado como String não muda
+
+- Os metodos toLowerCase(),replace(),toUpperCase() criam uma nova String, e não mudam a já existente.
+
+-char tem apenas um caractere, e que é representado por aspas simples
+
+
+====================================Java orientado a objetos=========================================
+
+"O principal conceito da Orientação a objeto é esconder como as coisas funcionam, para que as outras
+pessoas não precisem se preucupar, e no dia que você precisar fazer uma alteração em varios arquivos, 
+você consegue resolver mudando em um só lugar"
+
+................
+
+- objetos não mudam de tipo, a referência pode mudar, e aí entra o polimorfismo
+
+- Classe: é uma especificação de um tipo, definindo atributos e comportamentos.
+
+- Estancia: criação de um objeto utilizando uma classe com parametros pré-definidos. (https://www.devmedia.com.br/conceitos
+  -e-exemplos-instanciacao-estrutura-da-linguagem/18817#modulo-mvp)
+
+- Objeto:(é uma instância de uma classe onde podemos definir valores para seus atributos.) é criado a partir ta estanciação de uma classe.
+
+- Referencia: Representada pelo ( .(ponto) ) pode ser usada para referenciar um objeto aos atributos que nele existem
+
+- Atributo: caracteristicas de um objeto(Variaveis de um objeto);
+
+- encapsulamento: Declarar um atributo como privado utilizando a palavra-chave "Private" antes do tipo da variavel em questão, tornando a variavel modificavel
+  apenas pela classe que o detem.
+
+- Getters e Setters: Get e Set são auxializados para nomeação de métodos(não são palavras chaves, apenas uma escolha possivel e comum ao desenvolvedor).
+  exemplos (getSaldo = mostra o valor na variavel Saldo ou setSaldo = modifica o valor na variavel Saldo)
+
+- Construtores: diferente de um metodo ele não tem retorno e nem tipo de variavel, ele é uma rotina de inicialização 
+  representado pelo () após o nome da Classe que estancia o objeto.
+  (criado do mesmo modo que um método)
+
+
+    =======================
+	TIPOS DE DADOS
+	Nome     Tamanho
+    =======================
+	boolean	 1 bit
+	byte	 1 byte
+	short	 2 bytes
+	char	 2 bytes
+	int	 4 bytes
+	float	 4 bytes
+	long	 8 bytes
+	double	 8 bytes
+    ======================
+
+===================================PALAVRAS CHAVES DO JAVA=======================================
+
+abstract	continue	for	       new	      switch
+assert***	default	        goto*	       package	      synchronized
+boolean	        do	        if	       private	      this
+break	        double	        implements     protected      throw
+byte	        else	        import	       public	      throws
+case	        enum****	instanceof     return	      transient
+catch	        extends	        int	       short	      try
+char	        final	        interface      static	      void
+class	        finally	        long	       strictfp**     volatile
+const*	        float	        native	       super	      while            
+
+================================================================================================
+
+MODIFICADORES DE VISIBILIDADE
+
+private - apenas visível dentro da classe
+
+package private - ao retirar o public antes da classe deixando-a visivel apenas as classes dentro no mesmo pacote
+
+protected - visível dentro da classe e também para as filhas
+
+public - visível em todo lugar
+
+=======================================Heranças em java=========================================
+
+	https://www.devmedia.com.br/entendendo-e-aplicando-heranca-em-java/24544
+
+- o primeiro beneficio da herança é a Reutilização do código.
+
+- o segundo é o polimorfismo
+
+- Herança no java signifca: uma classe receber todos os comportamentos e atributos de outra classe de um modo em que não seja
+  necessario reescrever todo o codigo. exemplo: a classe gerente recebe todos os elementos da classe funcionario(variaveis e metodos, menos construtores)
+
+- os contrutores são exclusivos de sua classe(não podem ser reutilizados em outra) pois o gerente tem tudo que o um funcionario tem, e mais algumas coisas, que devem ser adicionadas na propria classe Gerente.
+
+- no mundo Java usa-se a palavra chave extends para a correta execução da sintaxe de herança. exemplo: "public class Gerente extends Funcionario".
+
+- a palavra chave protected significa: variavel visiviel para a classe mãe e seus filhos e para nenhuma outra mais.
+
+- super : significa que o atributo após a referencia( . ) nao está definida na classe em questão mas sim na classe mãe/super class
+
+- não existe herança multipla mas existem contratos(implements), ai que entra as interfaces
+			      ==========Polimorfismo============
+		
+	https://www.devmedia.com.br/uso-de-polimorfismo-em-java/26140#:~:text=Polimorfismo%20significa%20"muitas%20formas"%2C,diferentes%20ao%20receber%20uma%20mensagem.
+
+
+- o ponto forte do polimorfismo são as interfaces
+
+- o polimorfismo permite usar referências mais genéricas para a comunicação com um objeto.
+
+-  o uso de referências mais genéricas permite desacoplar sistemas
+
+- @Override = É usada para sobrescrever o método da interface, indicando que o método original foi alterado.
+
+- abstract = palavra chave que vem antes da palavra chave "class" indica que a classe em questão é um classe abistrata e a sim a classe não pode mais ser criada
+  como objeto concreto apenas como referencia vindo antes do nome do objeito e não após o = new .
+
+- abstract = quando usado no metodo(após o public) da classe mãe, faz com q o metodo não tenha nenhum retorno e força que todos os filhos tenham aquele mesmo metódo
+
+=================================================================================================
+			SOBRECARGA EM JAVA
+	https://www.devmedia.com.br/sobrecarga-e-sobreposicao-de-metodos-em-orientacao-a-objetos/33066#:~:text
+	=A%20sobrecarga%20(overload)%20consiste%20em,método%20com%20o%20mesmo%20nome.&text=Na%20sobreposição%20
+	é%20necessário%20que,)%2C%20mas%20com%20implementações%20diferentes.
+
+=================================================================================================
+			INTERFACES EM JAVA
+
+https://www.devmedia.com.br/entendendo-interfaces-em-java/25502
+
+- criando um interface: crie uma classe normalmente, deixe ela completamente abstrata e depois substitua o class por interface
+
+- uma interface é um classe com todos os metódos abstratos(não pode ter nada concreto), sem atributos, nem implementação nos métodos. e sempre com abstract
+  na frente do tipo de retorno da assinatura do método
+
+- a classe que ira implementar(implents)a interface precisa declarar todos os métodos e variaveis necessarias da interface, podendo modificar as implementações
+  dos métodos ao que melhor se encaixa a ela
+
+==================================================================================================
+			(exepcion) EXCEÇÕES EM JAVA
+https://www.devmedia.com.br/trabalhando-com-excecoes-em-java/27601#:~:text=Exception%20(java.,para%20conseguir%20realizar%20o%20processamento.
+   		       =exepcions da linguagem java =
+
+- exceções em java são erros.
+
+-  o compilador so verifica a sintaxe, mas não o que ele é impossivel de fazer como "a" dividido por "0", ai aparece um exeção
+
+- rastro de exceções = mostra onde a excecão começou e passou procurando por alguem que a pudesse solucionar, até o final do codigo se ela não achar, 
+  ela continua até finalizar o codigo
+
+- tratando exceçoes = 
+
+	try{
+	   método com a exepcion();
+	} catch(nome do erro = ArithmeticException  nome de variavel = ex ) {
+	   String msg = ex.getMessage();
+	   System.out.println("a causa do erro é: "+msg)
+	   ex.printStackTrace();
+	}
+ 
+   essa composição do try catch faz com que mesmo que o erro exista o programa continue funcionando e o erro sendo enviado a nós como = Erro na AritmeticException.
+
+- o bloco do try é onde fica os codigos que podem vir a dar problema e o catch pega esse problema e trata ele.
+
+- o catch so funciona com o try, pois ele trata o erro que o try pega.
+
+- getMessage() é um metodo que nos entrega o que esta causando a exepcion.
+
+- o nome da exepcion ArithmeticException como todas as outras são classes, e nela existem metodos como o comando getMessage() que nos tras o motivo dessa exepcion
+
+- printStackTrace() metodo da classe ArithmeticException que nos tras o rastro da exepcion
+
+- Existe uma hierarquia grande de classes que representam exceções. Por exemplo, ArithmeticException é filha de RuntimeException, que herda de Exception,
+  que por sua vez é filha da classe mais ancestral das exceções, Throwable. Conhecer bem essa hierarquia significa saber utilizar exceções em sua aplicação.
+
+- para criar uma exepcion personalizada é necessario criar uma classe normalmente e colocala na herança das exepcion com "extends Exception" assim o deixando
+  na herança checked, depois, utilizar o seguinte codigo para lançar nossa exepcion na pilha "throw new MinhaExecao("testando exeção");" e para tudo isso funcionar
+  é necessario colocar o codigo "throws nomedaexepcion" na assinatura do método em que a exepcion foi lançada.
+
+- Exceções são separadas em duas grandes categorias: aquelas que são obrigatoriamente verificadas pelo compilador e as que não são verificadas.
+  As primeiras são denominadas checked e são criadas através do pertencimento a uma hieraquia que não passe por RuntimeException. As segundas são
+  as unchecked, e são criadas como descendentes de RuntimeException.
+
+- StackOverflowError é um erro da máquina virtual para informar que a pilha de execução não tem mais memória.
+
+- Throwable é a classe que precisa ser extendida para que seja possível jogar um objeto na pilha (através da palavra reservada throw)
+
+- a palavra chave finally tambem faz parte da sintaxe do trycatch, porém ela é opicional, ela faz com que o codigo dentro dentro do seu bloco seja sempre executado ao final
+  com ou sem execçao.
+
+======================================================================================================
+				LAMBDAS EM JAVA e FUNÇÕES ANONIMAS
+
+https://www.devmedia.com.br/como-usar-funcoes-lambda-em-java/32826
+
+
+
+
+======================================================================================================
+				JAVA E JAVA.IO(Leitura de arquivos com java)
+- fluxo de entrada concreto = arquivo, rede, teclado.
+
+as classes a seguir devem ser estanciados para se tornarem objetos Exemp:
+	"FileInputStream fis = new FileInputStream("Arquivo1.txt");"
+
+- "FileInputStream" � uma classe de entrada que recebe o arquivo e o le em binario
+- "InputStreamReader" � uma classe que recebe o "FileInputStream" e o le em caracteres
+- "BufferedReader" � uma classe que recebe o "InputStreamReader" e o le em String
+- "readLine()" � um metodo do "BufferedReader" que entrega a primeira linha do documento.
+
+
+- fluxo de saida concreta = Arquivo, rede, console.
+
+as classes a seguir devem ser estanciados para se tornarem objetos Exemp:
+	"FileOutputStream fos = new FileInputStream("Arquivo1.txt");"
+
+
+- "FileOutputStream"  seleciona o arquivo que deve ser escrito
+- "OutputStreamWriter" diz para a jvm onde escrever
+- "BufferedWriter" te da a possibilidade de escrever no arquivo selecionado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JEE
+ServLet
+JSP
+Struts
+Hipernate(JDBC, JPA)
+Java FX
+
+
+
+==========SPRING BOOT========================
+Link do curso de spring boot= https://www.youtube.com/watch?v=Af9VVeqzXiE&list=PL64XO_7gfxsj_POpEFuSdTxCca6YmJxFk
+ATUALMENTE NO VIDEO = 1 
+
+Spring(Muito mais simples(que o JAKARTA EE e JAVA EE) pelo modelo de configuração do projeto)
+
+-SpringFramework(Responsavel por tornar nosso projeto apto a rodar na internet)
+-SpringData(prove o modelo de acesso ao banco de dados)
+-SprintSecurity(cuida da segurança da aplicação)
+-SpringBoot(produtividade na hora do desenvolvimento)(ja vem com toomcat embarcado)
+-*Esses projeto são independenter e podem rodar separadamente*
+
+Spring typeLeafh
+Spring Boot
+Spring MVC
+Login com Spring Boot
+Crud Spring Boot
+
+
+
+
